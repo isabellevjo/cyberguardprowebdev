@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Guard Pro - Advanced Cybersecurity Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        :root {
+            --hot-pink: #ff1177;
+            --black: #0a0a0a;
+            --white: #ffffff;
+            --gray: #adadad;
+            --light-gray: #f0f0f0;
+            --dark-gray: #303030;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--black);
+            background-color: var(--black);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--black);
+            padding: 20px 0;
+            border-bottom: 2px solid var(--hot-pink);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--white);
+        }
+
+        /* Banner Styles */
+        .banner {
+            background-color: var(--hot-pink);
+            padding: 15px 0;
+        }
+
+        .banner ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        .banner ul li {
+            margin: 0 20px;
+        }
+
+        .banner ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('front_page.jpg') center/cover no-repeat;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--hot-pink);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn:hover {
+            background-color: #e0006d;
+        }
+
+        /* Main Content Styles */
+        main {
+            background-color: var(--white);
+            padding: 60px 0;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            color: var(--black);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--hot-pink);
+        }
+
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s;
+            border-bottom: 4px solid var(--hot-pink);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 50px;
+            color: var(--hot-pink);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 15px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .about-text h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 15px;
+            color: var(--hot-pink);
+        }
+
+        /* Services Section */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            border-bottom: 4px solid var(--hot-pink);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            color: var(--hot-pink);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 15px;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .price-card {
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            border-bottom: 4px solid var(--hot-pink);
+            transition: transform 0.3s;
+        }
+
+        .price-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .price-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 40px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: var(--hot-pink);
+        }
+
+        .price span {
+            font-size: 16px;
+            color: var(--dark-gray);
+        }
+
+        .price-features {
+            margin: 20px 0;
+            list-style: none;
+        }
+
+        .price-features li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+            text-align: left;
+        }
+
+        .price-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--hot-pink);
+            font-weight: bold;
+        }
+
+        /* AI Chatbot Section */
+        .chatbot-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-messages {
+            height: 300px;
+            overflow-y: auto;
+            border: 1px solid var(--gray);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: var(--white);
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 10px 15px;
+            border-radius: 20px;
+            max-width: 70%;
+        }
+
+        .bot-message {
+            background-color: var(--light-gray);
+            margin-right: auto;
+        }
+
+        .user-message {
+            background-color: var(--hot-pink);
+            color: var(--white);
+            margin-left: auto;
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid var(--gray);
+            border-radius: 30px;
+            outline: none;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--gray);
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Sign-up Form */
+        .signup-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--hot-pink);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--hot-pink);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--dark-gray);
+            color: var(--white);
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--hot-pink);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--dark-gray);
+            color: var(--gray);
+        }
+
+        /* Pages */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                margin-bottom: 20px;
+            }
+
+            .banner ul {
+                flex-wrap: wrap;
+            }
+
+            .banner ul li {
+                margin: 5px 10px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+        }
+
+        /* Articles section */
+        .articles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .article-card {
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .article-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .article-content {
+            padding: 20px;
+        }
+
+        .article-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .article-meta {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .read-more {
+            color: var(--hot-pink);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+
+
+
+<script>
+    function showPage(pageId) {
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => {
+            page.classList.remove('active');
+        });
+
+        document.getElementById(pageId).classList.add('active');
+        window.scrollTo(0, 0); // Optional: scroll to top when switching pages
+    }
+</script>
+
+
+
+
+<body>
+    <!-- Header -->
+<header>
+    <div class="container header-container">
+        <div class="logo">
+            <a href="#" onclick="showPage('home')" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                <img src="cgp_logo.png" alt="Cyber Guard Pro Logo">
+                <div class="logo-text">CYBER GUARD PRO</div>
+            </a>
+        </div>
+    </div>
+</header>
+
+
+    <!-- Banner -->
+    <div class="banner">
+        <div class="container">
+            <ul>
+                <li><a href="#" onclick="showPage('about')">About Us</a></li>
+                <li><a href="#" onclick="showPage('services')">Services</a></li>
+                <li><a href="#" onclick="showPage('features')">Feature Page</a></li>
+                <li><a href="#" onclick="showPage('contact')">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Protecting Your Digital World</h1>
+                <p>Advanced cybersecurity solutions to safeguard your business from evolving digital threats.</p>
+                <a href="#" onclick="showPage('services')" class="btn">Explore Our Services</a>
+            </div>
+        </section>
+
+        <main>
+
+                <section style="margin-top: 50px;">
+                    <h2 class="section-title">AI Chatbot Assistant</h2>
+                    <div class="chatbot-container">
+                        <div class="chat-messages" id="chat-messages">
+                            <div class="message bot-message">
+                                Hello! I'm the Cyber Guard Pro AI assistant. How can I help you with your cybersecurity needs today?
+                            </div>
+                        </div>
+                        <div class="chat-input">
+                            <input type="text" id="chat-input" placeholder="Type your message here...">
+                            <button class="btn" onclick="sendMessage()">Send</button>
+                        </div>
+                    </div>
+                </section>
+
+            <div class="container">
+                <section>
+                    <h2 class="section-title">What We Offer</h2>
+                    <div class="features">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Advanced Threat Protection</h3>
+                            <p>AI-powered systems that detect and neutralize threats before they can cause damage to your network.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <h3>Data Encryption</h3>
+                            <p>Military-grade encryption protocols to ensure your sensitive data remains confidential.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <h3>Personal Protection</h3>
+                            <p>Comprehensive solutions to protect your personal devices and digital identity.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="section-title">Why Choose Us</h2>
+                    <div class="about-content">
+                        <div class="about-image">
+                            <img src="cgp_team.jpg" alt="Cybersecurity Team">
+                        </div>
+                        <div class="about-text">
+                            <h3>Industry Leading Expertise</h3>
+                            <p>With over 10 years of experience in cybersecurity, our team of experts has protected thousands of businesses from cyber threats. We stay ahead of the curve by continuously researching and implementing the latest security technologies.</p>
+                            <p>Our proactive approach means we don't just respond to threats – we anticipate and prevent them before they can impact your operations.</p>
+                            <a href="#" onclick="showPage('about')" class="btn">Learn More About Us</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="section-title">Our Services</h2>
+                    <div class="services">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <h3>Network Security</h3>
+                            <p>Comprehensive protection for your entire network infrastructure against unauthorized access and attacks.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h3>Cloud Security</h3>
+                            <p>Secure your cloud-based applications and data with our specialized cloud security solutions.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h3>Application Security</h3>
+                            <p>Protect your software applications from vulnerabilities and attacks throughout their lifecycle.</p>
+                        </div>
+                    </div>
+                    <div class="text-center" style="text-align: center; margin-top: 30px;">
+                        <a href="#" onclick="showPage('services')" class="btn">View All Services</a>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- About Us Page -->
+    <div id="about" class="page">
+        <main>
+            <div class="container">
+                <h2 class="section-title">About Cyber Guard Pro</h2>
+               
+                <section class="about-content" style="grid-template-columns: 1fr;">
+                    <div>
+                        <h3>Our Mission</h3>
+                        <p>At Cyber Guard Pro, we're committed to creating a safer digital world. Our mission is to provide cutting-edge cybersecurity solutions that protect businesses and individuals from the ever-evolving landscape of digital threats.</p>
+                        <p>Founded by a team of cybersecurity experts with decades of combined experience, we understand the critical importance of robust security measures in today's interconnected world.</p>
+                       
+                        <h3 style="margin-top: 30px;">Our Approach</h3>
+                        <p>We believe in a proactive, multi-layered approach to cybersecurity. Rather than simply reacting to threats as they emerge, we work to anticipate potential vulnerabilities and address them before they can be exploited.</p>
+                        <p>Our team continuously researches emerging threats and develops innovative solutions to stay ahead of malicious actors. This commitment to innovation has established us as a leader in the cybersecurity industry.</p>
+                    </div>
+                </section>
+
+                <section style="margin-top: 50px;">
+                    <h2 class="section-title">Latest Cybersecurity Articles</h2>
+                    <div class="articles">
+                        <div class="article-card">
+                            <div class="article-image" style="background-image: url('ransomeware.jpg')"></div>
+                            <div class="article-content">
+                                <h3>The Rising Threat of Ransomware</h3>
+                                <div class="article-meta">April 15, 2025 | Cybersecurity</div>
+                                <p>Ransomware attacks have increased by 300% in the past year. Learn how to protect your organization from this growing threat.</p>
+                                <a href="#" class="read-more">Read More</a>
+                            </div>
+                        </div>
+                        <div class="article-card">
+                            <div class="article-image" style="background-image: url('security.jpg')"></div>
+                            <div class="article-content">
+                                <h3>Zero Trust Architecture: The Future of Security</h3>
+                                <div class="article-meta">April 10, 2025 | Security Models</div>
+                                <p>Why the "never trust, always verify" approach is becoming essential for modern organizations.</p>
+                                <a href="#" class="read-more">Read More</a>
+                            </div>
+                        </div>
+                        <div class="article-card">
+                            <div class="article-image" style="background-image: url('cyber_threat.png')"></div>
+                            <div class="article-content">
+                                <h3>Protecting Remote Workers from Cyber Threats</h3>
+                                <div class="article-meta">April 5, 2025 | Business Security</div>
+                                <p>With remote work becoming the norm, organizations face new security challenges. Here's how to address them.</p>
+                                <a href="#" class="read-more">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section style="margin-top: 50px;">
+                    <h2 class="section-title">How We Help Prevent Cyber Threats</h2>
+                    <div class="features">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h3>Threat Intelligence</h3>
+                            <p>We continuously monitor global threat landscapes to identify emerging risks before they reach your systems.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-virus"></i>
+                            </div>
+                            <h3>Vulnerability Management</h3>
+                            <p>Regular security assessments identify and address vulnerabilities in your systems before they can be exploited.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <h3>Security Training</h3>
+                            <p>We provide comprehensive training to help your team recognize and respond to potential security threats.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-door-closed"></i>
+                            </div>
+                            <h3>Access Control</h3>
+                            <p>Implement robust access management systems to ensure only authorized personnel can access sensitive information.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Services Page -->
+    <div id="services" class="page">
+        <main>
+            <div class="container">
+                <h2 class="section-title">Our Services</h2>
+               
+                <section>
+                    <div class="services" style="grid-template-columns: 1fr;">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Comprehensive Threat Assessment</h3>
+                            <p>Our thorough evaluation identifies vulnerabilities in your current security infrastructure and provides actionable recommendations for improvement.</p>
+                        </div>
+                        <div class="service-card" style="margin-top: 30px;">
+                            <div class="service-icon">
+                                <i class="fas fa-fingerprint"></i>
+                            </div>
+                            <h3>Advanced Endpoint Protection</h3>
+                            <p>Secure all devices connecting to your network with next-generation antivirus, anti-malware, and advanced threat detection capabilities.</p>
+                        </div>
+                        <div class="service-card" style="margin-top: 30px;">
+                            <div class="service-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <h3>Data Encryption Services</h3>
+                            <p>Protect your sensitive data with military-grade encryption protocols, both at rest and in transit.</p>
+                        </div>
+                        <div class="service-card" style="margin-top: 30px;">
+                            <div class="service-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3>AI-Powered Threat Detection</h3>
+                            <p>Our artificial intelligence systems continuously monitor your network for unusual activity, identifying and responding to potential threats in real-time.</p>
+                        </div>
+                        <div class="service-card" style="margin-top: 30px;">
+                            <div class="service-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Security Awareness Training</h3>
+                            <p>Empower your team with knowledge to recognize and respond appropriately to social engineering and other cyber threats.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section style="margin-top: 50px;">
+                    <h2 class="section-title">Subscription Plans</h2>
+                    <div class="pricing">
+                        <div class="price-card">
+                            <h3>Free Trial</h3>
+                            <div class="price">$0 <span>/ 7 days</span></div>
+                            <p>Experience our basic protection features for a limited time.</p>
+                            <ul class="price-features">
+                                <li>Basic Threat Monitoring</li>
+                                <li>Limited Malware Protection</li>
+                                <li>Email Security Scanning</li>
+                                <li>24/7 Support</li>
+                            </ul>
+                            <a href="#" class="btn" onclick="showSignupForm('free')">Start Free Trial</a>
+                        </div>
+                        <div class="price-card">
+                            <h3>Monthly Plan</h3>
+                            <div class="price">$30 <span>/ month</span></div>
+                            <p>Comprehensive protection for individuals and small businesses.</p>
+                            <ul class="price-features">
+                                <li>Advanced Threat Detection</li>
+                                <li>Real-time Monitoring</li>
+                                <li>Data Encryption</li>
+                                <li>Vulnerability Scanning</li>
+                                <li>Priority 24/7 Support</li>
+                            </ul>
+                            <a href="#" class="btn" onclick="showSignupForm('monthly')">Subscribe Now</a>
+                        </div>
+                        <div class="price-card">
+                            <h3>Annual Plan</h3>
+                            <div class="price">$129 <span>/ year</span></div>
+                            <p>Our most comprehensive protection package with significant savings.</p>
+                            <ul class="price-features">
+                                <li>All Monthly Plan Features</li>
+                                <li>AI-Powered Threat Analysis</li>
+                                <li>Advanced Security Reports</li>
+                                <li>Custom Security Policies</li>
+                                <li>Dedicated Security Advisor</li>
+                                <li>Premium 24/7 Support</li>
+                            </ul>
+                            <a href="#" class="btn" onclick="showSignupForm('annual')">Subscribe Now</a>
+                        </div>
+                    </div>
+                </section>
+
+
+<!-- Sign-up Form (Hidden by Default) -->
+                <section id="signup-section" style="display: none; margin-top: 50px;">
+                    <h2 class="section-title">Sign Up for Cyber Guard Pro</h2>
+                    <div class="signup-form">
+                        <div class="form-group">
+                            <label for="full-name">Full Name</label>
+                            <input type="text" id="full-name" placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Enter your email address">
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company Name (Optional)</label>
+                            <input type="text" id="company" placeholder="Enter your company name">
+                        </div>
+                        <div class="form-group">
+                            <label for="plan">Selected Plan</label>
+                            <input type="text" id="plan" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Create Password</label>
+                            <input type="password" id="password" placeholder="Enter a secure password">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm Password</label>
+                            <input type="password" id="confirm-password" placeholder="Confirm your password">
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Create Account</button>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Features Page -->
+    <div id="features" class="page">
+        <main>
+            <div class="container">
+                <h2 class="section-title">Our Features</h2>
+               
+                <section>
+                    <div class="features">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h3>AI-Powered Protection</h3>
+                            <p>Our artificial intelligence systems continuously learn and adapt to new threats, providing unmatched protection for your digital assets.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Real-Time Analytics</h3>
+                            <p>Comprehensive dashboards provide instant visibility into your security posture and any potential threats.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3>Mobile Protection</h3>
+                            <p>Secure all your mobile devices with our comprehensive mobile security solutions.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <h3>Cloud Integration</h3>
+                            <p>Seamlessly integrate with all major cloud platforms to ensure your cloud-based assets remain protected.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-file-signature"></i>
+                            </div>
+                            <h3>Compliance Management</h3>
+                            <p>Stay compliant with industry regulations and standards with our automated compliance tools.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <h3>Instant Alerts</h3>
+                            <p>Receive immediate notifications of potential security incidents, allowing for rapid response.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section style="margin-top: 50px;">
+                    <h2 class="section-title">AI Chatbot Assistant</h2>
+                    <div class="chatbot-container">
+                        <div class="chat-messages" id="chat-messages">
+                            <div class="message bot-message">
+                                Hello! I'm the Cyber Guard Pro AI assistant. How can I help you with your cybersecurity needs today?
+                            </div>
+                        </div>
+                        <div class="chat-input">
+                            <input type="text" id="chat-input" placeholder="Type your message here...">
+                            <button class="btn" onclick="sendMessage()">Send</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Contact Us Page -->
+    <div id="contact" class="page">
+        <main>
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+               
+                <section>
+                    <div class="contact-form">
+                        <div class="form-group">
+                            <label for="contact-name">Full Name</label>
+                            <input type="text" id="contact-name" placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email Address</label>
+                            <input type="email" id="contact-email" placeholder="Enter your email address">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">Subject</label>
+                            <input type="text" id="contact-subject" placeholder="Enter the subject of your message">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" placeholder="Enter your message..."></textarea>
+                        </div>
+                        <button type="button" class="btn" style="width: 100%;" onclick="Swal.fire('Message Sent!', 'We\'ll get back to you soon.', 'success')">Send Message</button>
+                    </div>
+                </section>
+
+                <section style="margin-top: 50px;">
+                    <h2 class="section-title">Create Your Profile</h2>
+                    <div class="contact-form">
+                        <div class="form-group">
+                            <label for="profile-name">Full Name</label>
+                            <input type="text" id="profile-name" placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-email">Email Address</label>
+                            <input type="email" id="profile-email" placeholder="Enter your email address">
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-password">Create Password</label>
+                            <input type="password" id="profile-password" placeholder="Enter a secure password">
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-confirm-password">Confirm Password</label>
+                            <input type="password" id="profile-confirm-password" placeholder="Confirm your password">
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-phone">Phone Number (Optional)</label>
+                            <input type="tel" id="profile-phone" placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-company">Company (Optional)</label>
+                            <input type="text" id="profile-company" placeholder="Enter your company name">
+                        </div>
+                        <button type="button" class="btn" style="width: 100%;" onclick="Swal.fire('Profile Made', 'Please check your email to verify your account.', 'success')">Create Profile</button>
+
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <p>Cyber Guard Pro provides cutting-edge cybersecurity solutions to protect businesses and individuals from digital threats.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" onclick="showPage('home')">Home</a></li>
+                        <li><a href="#" onclick="showPage('about')">About Us</a></li>
+                        <li><a href="#" onclick="showPage('services')">Services</a></li>
+                        <li><a href="#" onclick="showPage('features')">Features</a></li>
+                        <li><a href="#" onclick="showPage('contact')">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#" onclick="showPage('services')">Threat Assessment</a></li>
+                        <li><a href="#" onclick="showPage('services')">Endpoint Protection</a></li>
+                        <li><a href="#" onclick="showPage('services')">Data Encryption</a></li>
+                        <li><a href="#" onclick="showPage('services')">AI Threat Detection</a></li>
+                        <li><a href="#" onclick="showPage('services')">Security Training</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Security Blvd, Cybertown</li>
+                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@cyberguardpro.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Cyber Guard Pro. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page Navigation
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+           
+            // Show the selected page
+            document.getElementById(pageId).classList.add('active');
+           
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // AI Chatbot Functionality
+        function sendMessage() {
+            const chatInput = document.getElementById('chat-input');
+            const chatMessages = document.getElementById('chat-messages');
+           
+            if (chatInput.value.trim() === '') return;
+           
+            // Add user message
+            const userMessage = document.createElement('div');
+            userMessage.classList.add('message', 'user-message');
+            userMessage.textContent = chatInput.value;
+            chatMessages.appendChild(userMessage);
+           
+            // Simulate AI response
+            setTimeout(() => {
+                const botMessage = document.createElement('div');
+                botMessage.classList.add('message', 'bot-message');
+               
+                // Generate a response based on the user's message
+                let response = generateResponse(chatInput.value.toLowerCase());
+                botMessage.textContent = response;
+               
+                chatMessages.appendChild(botMessage);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 1000);
+           
+            // Clear input
+            chatInput.value = '';
+           
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+       
+        function generateResponse(message) {
+            // Simple response generation based on keywords
+            if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
+                return "Hello! How can I help you with cybersecurity today?";
+            } else if (message.includes('ransomware')) {
+                return "Ransomware is a serious threat. Our advanced threat protection system can help detect and block ransomware before it encrypts your files. Would you like to know more about our ransomware protection?";
+            } else if (message.includes('price') || message.includes('cost') || message.includes('subscription')) {
+                return "We offer several subscription plans: a 7-day free trial, a monthly plan at $30/month, and an annual plan at $129/year with additional features. Would you like more details about a specific plan?";
+            } else if (message.includes('virus') || message.includes('malware')) {
+                return "Our solution offers real-time scanning and removal of viruses, malware, and other malicious software. We use AI-powered detection to identify even the newest threats.";
+            } else if (message.includes('data') || message.includes('encryption')) {
+                return "We provide military-grade encryption for your sensitive data, both at rest and in transit. This ensures that even if data is intercepted, it cannot be read without the encryption keys.";
+            } else if (message.includes('support')) {
+                return "We offer 24/7 technical support to all our subscribers. Premium subscribers receive priority support with a guaranteed response time of under 30 minutes.";
+            } else {
+                return "Thanks for your message. That's an interesting topic in cybersecurity. Would you like to speak with one of our security experts for more detailed information?";
+            }
+        }
